@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsCafee"
+        xmlns:ClassLibraryIsCafee="clr-namespace:ClassLibraryIsCafee;assembly=ClassLibraryIsCafee" x:Class="IsCafee.ZakazList"
+        mc:Ignorable="d"
+        Title="ZakazList" Height="450" Width="800">
+    <Grid Background="#ffbf00">
+        <DataGrid x:Name="zakazData" Background="#ffbf40" Margin="42,44,65,112">
+            <DataGrid.DataContext>
+                <ClassLibraryIsCafee:Zakaz/>
+            </DataGrid.DataContext>
+        </DataGrid>
+
+    </Grid>
+</Window>

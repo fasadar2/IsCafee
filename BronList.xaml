@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsCafee"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:ClassLibraryIsCafee="clr-namespace:ClassLibraryIsCafee;assembly=ClassLibraryIsCafee" x:Class="IsCafee.BronList"
+        mc:Ignorable="d"
+        Title="BronList" Height="450" Width="800">
+    <Grid Background="#ffbf00">
+        <DataGrid x:Name="dgBronList" Margin="10,43,215,91" Background="#ffbf00"
+                  >
+            <DataGrid.ColumnHeaderStyle>
+                <Style/>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.DataContext>
+                <ClassLibraryIsCafee:Bronirivanie/>
+            </DataGrid.DataContext>
+           
+        </DataGrid>
+        <Button x:Name="bDeleteBron" Content="Удалить бронирование" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" Width="190"/>
+        <TextBox x:Name="tbDeletBron" materialDesign:HintAssist.Hint="Впишите id бронирования" FontSize="12" HorizontalAlignment="Left" Margin="608,67,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Cursor="IBeam"/>
+        <TextBox x:Name="tbBronTimeEntry" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="время прихода" Margin="608,107,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="tbBronTimeExit" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Время ухода" Margin="608,153,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <Button x:Name="bBronUpdate" Content="Изменить данные" HorizontalAlignment="Left" Margin="227,366,0,0" VerticalAlignment="Top" Width="190" Click="bBronUpdate_Click"/>
+        <TextBox x:Name="tbBronTime" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Время бронирования" Margin="608,192,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+
+    </Grid>
+</Window>

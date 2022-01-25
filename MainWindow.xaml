@@ -1,0 +1,74 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsCafee"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:ClassLibraryIsCafee="clr-namespace:ClassLibraryIsCafee;assembly=ClassLibraryIsCafee" x:Class="IsCafee.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Бронирование">
+                <Grid Background="#ffbf00" Margin="0,0,-3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="116*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="674*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="bBron" Content="забронировать" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="148" Grid.ColumnSpan="3" Click="bBron_Click"/>
+                    <TextBox x:Name="tBNameBron" materialDesign:HintAssist.Hint="имя" FontSize="12" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="tbFamilBron" materialDesign:HintAssist.Hint="фамилия" FontSize="12" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="tbOtchBron" materialDesign:HintAssist.Hint="отчество" FontSize="12" HorizontalAlignment="Left" Margin="10,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Grid.ColumnSpan="3" Cursor="IBeam"/>
+                    <TextBox x:Name="tbZalBron" materialDesign:HintAssist.Hint="номер зала" FontSize="12" HorizontalAlignment="Left" Margin="49,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+                    <TextBox x:Name="tbStolBron" materialDesign:HintAssist.Hint="номер столика" FontSize="12" HorizontalAlignment="Left" Margin="49,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+                    <Button x:Name="bOpenBronList" Content="Показать существующие бронирования" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" Click="bOpenBronList_Click" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="tbBronClientCard" Grid.Column="2" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="номер карты клиента" FontSize="12" Margin="49,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Cursor="IBeam"/>
+                    <TextBox x:Name="tbSumBron" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="сумма бронирования" Margin="16,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Cursor="IBeam" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="tbTime" Grid.Column="2" materialDesign:HintAssist.Hint="Время бронирования" FontSize="12" HorizontalAlignment="Left" Margin="49,234,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Cursor="IBeam"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="заказ">
+                <Grid Background="#ffbf00">
+                    <TextBlock HorizontalAlignment="Left" Background="#ffbf00" Margin="502,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="354" Width="246"/>
+                    <TabControl Margin="0,0,309,144" >
+                        <TabItem Header="основное меню">
+                            <Grid Background="#ffbf00" Margin="0,0,0,-9">
+                                <CheckBox x:Name="cbPur" Content="Пюрешка" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="cbKot" Content="Котлетки" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="продукты">
+                            <Grid Background="#ffbf00" Height="353" Margin="0,0,-10,0">
+                                <CheckBox x:Name="cbCola" Content="Coca-Cola" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="cbFanta" Content="Fanta" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                    <Button x:Name="bZakazAdd" Content="Сформировать заказ" HorizontalAlignment="Left" Margin="315,298,0,0" VerticalAlignment="Top" Click="bZakazAdd_Click"/>
+                    <Button x:Name="bViewZakz" Content="Посмотреть заказы" HorizontalAlignment="Left" Margin="98,298,0,0" VerticalAlignment="Top" Height="32" Width="172" Click="bViewZakz_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="клиент" Margin="-2,-2,-2,0">
+                <Grid Background="#ffbf00">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="719*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dgClientView" Background="Beige" Grid.Column="2" Margin="110,0,10,0" Height="386" VerticalAlignment="Center">
+                        <DataGrid.DataContext>
+                            <ClassLibraryIsCafee:Client/>
+                        </DataGrid.DataContext>
+                    </DataGrid>
+                    <Button x:Name="bDeleteClient" Content="удалить клиента" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="153"/>
+                    <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Введите id клиента" FontSize="12" Margin="10,55,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="bAddClient" Content="Добавить клиента" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Click="bAddClient_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
